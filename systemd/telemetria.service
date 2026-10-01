@@ -1,0 +1,22 @@
+[Unit]
+Description=Servicio Continuo de Telemetria RPi (Taller Sistemas Embebidos)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/taller-systemd
+ExecStart=/usr/bin/python3 /home/pi/taller-systemd/telemetria.py
+User=pi
+Group=pi
+
+# Política de auto-recuperación ante caídas
+Restart=always
+RestartSec=5s
+
+StandardOutput=journal
+StandardError=journal
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+[Unit]
+Description=Temporizador Periodico para Envio de Telemetria RPi
+Documentation=https://www.freedesktop.org/software/systemd/man/systemd.timer.html
+
+[Timer]
+# Temporizadores monotónicos (relativos a eventos del sistema):
+# 1. Espera 1 minuto tras el encendido inicial de la Raspberry Pi antes del primer disparo
+OnBootSec=1min
+
+# 2. Vuelve a disparar el servicio cada 30 segundos tras la última activación
+OnUnitActiveSec=30s
+
+# Si la Raspberry Pi estuvo apagada durante un disparo programado, ejecutar inmediatamente al reiniciar
+Persistent=true
+
+# Unidad de servicio que activará este temporizador
+Unit=telemetria-timer.service
+
+[Install]
+# Habilitar el temporizador para que inicie junto con el sistema multiusuario
+WantedBy=timers.target

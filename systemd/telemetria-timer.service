@@ -1,0 +1,15 @@
+[Unit]
+Description=Ejecucion Unitaria de Telemetria RPi (One-shot para Timer)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/pi/taller-systemd
+ExecStart=/usr/bin/python3 /home/pi/taller-systemd/telemetria.py once
+User=pi
+Group=pi
+
+StandardOutput=journal
+StandardError=journal
+Environment=PYTHONUNBUFFERED=1
