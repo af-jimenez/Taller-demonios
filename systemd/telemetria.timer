@@ -1,6 +1,6 @@
 [Unit]
 Description=Temporizador Periodico para Envio de Telemetria RPi
-Documentation=https://www.freedesktop.org/software/systemd/man/systemd.timer.html
+Documentation=
 
 [Timer]
 # Temporizadores monotónicos (relativos a eventos del sistema):

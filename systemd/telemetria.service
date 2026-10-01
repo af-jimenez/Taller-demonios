@@ -5,10 +5,10 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-WorkingDirectory=/home/pi/taller-systemd
-ExecStart=/usr/bin/python3 /home/pi/taller-systemd/telemetria.py
-User=pi
-Group=pi
+WorkingDirectory=/home/[USUARIO]/taller-systemd
+ExecStart=/usr/bin/python3 /home/[USUARIO]/taller-systemd/telemetria.py
+User=[USUARIO]
+Group=[USUARIO]
 
 # Política de auto-recuperación ante caídas
 Restart=always
